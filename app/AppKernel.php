@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Minishop\UserBundle\MinishopUserBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Minishop\BackendBundle\MinishopBackendBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

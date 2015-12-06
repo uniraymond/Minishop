@@ -1,0 +1,4 @@
+services:
+#    minishop_backend.example:
+#        class: Minishop\BackendBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

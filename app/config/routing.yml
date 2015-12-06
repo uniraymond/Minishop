@@ -1,3 +1,7 @@
+minishop_backend:
+    resource: "@MinishopBackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
 minishop_user:
     resource: "@MinishopUserBundle/Resources/config/routing.yml"
     prefix:   /
