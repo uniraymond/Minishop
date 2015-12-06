@@ -1,6 +1,13 @@
+minishop_user:
+    resource: "@MinishopUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 minishop_shop:
     resource: "@MinishopShopBundle/Resources/config/routing.yml"
     prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
 app:
     resource: "@AppBundle/Controller/"

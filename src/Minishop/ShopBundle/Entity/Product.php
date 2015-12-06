@@ -50,6 +50,10 @@ class Product
     private $price;
 
 
+    public function __toString()
+    {
+        return $this->getName() ? $this->getName() : "";
+    }
 
     /**
      * Get id

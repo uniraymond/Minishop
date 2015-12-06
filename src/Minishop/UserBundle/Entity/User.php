@@ -5,14 +5,14 @@
  * Date: 6/12/15
  * Time: 11:50 PM
  */
-namespace Minishop\ShopBundle\Entity;
+namespace Minishop\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="mini_user")
  */
 class User extends BaseUser
 {
