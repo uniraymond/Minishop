@@ -7,6 +7,26 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Minishop\UserBundle\Entity\User
+    registration:
+        confirmation:
+            enabled: true
+            from_email:
+                address:    registration@ifengexample.com
+                sender_name:  Mini Shop Registration
+    resetting:
+        email:
+            from_email:
+                address:       resetting@ifengexample.com
+                sender_name:   Mini Shop Resetting
+    service:
+        mailer: app.custom_fos_user_mailer
+        resetting:
+            email:
+                template: email/password_resetting.email.twig
+
+    from_email:
+        address:    noreply@ifengexample.com
+        sender_name:    Mini Shop App
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
