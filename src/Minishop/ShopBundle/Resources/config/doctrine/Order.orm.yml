@@ -1,0 +1,35 @@
+Minishop\ShopBundle\Entity\Order:
+    type: entity
+    table: order
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        productId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: product_id
+        userId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: user_id
+        amount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        orderDate:
+            type: datetime
+            nullable: true
+            column: order_date
+    lifecycleCallbacks: {  }
