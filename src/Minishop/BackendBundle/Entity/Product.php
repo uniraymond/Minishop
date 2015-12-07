@@ -1,6 +1,6 @@
 <?php
 
-namespace Minishop\ShopBundle\Entity;
+namespace Minishop\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

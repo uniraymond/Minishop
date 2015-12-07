@@ -1,16 +1,16 @@
 <?php
 
-namespace Minishop\ShopBundle\Entity;
+namespace Minishop\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product
+ * Category
  *
- * @ORM\Table(name="product")
+ * @ORM\Table(name="category")
  * @ORM\Entity
  */
-class Product
+class Category
 {
     /**
      * @var integer
@@ -31,23 +31,9 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="brand", type="string", length=100, nullable=true)
-     */
-    private $brand;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="description", type="text", length=65535, nullable=true)
      */
     private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="price", type="decimal", precision=10, scale=0, nullable=true)
-     */
-    private $price;
 
 
     public function __toString()
@@ -70,7 +56,7 @@ class Product
      *
      * @param string $name
      *
-     * @return Product
+     * @return Category
      */
     public function setName($name)
     {
@@ -90,35 +76,11 @@ class Product
     }
 
     /**
-     * Set brand
-     *
-     * @param string $brand
-     *
-     * @return Product
-     */
-    public function setBrand($brand)
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Get brand
-     *
-     * @return string
-     */
-    public function getBrand()
-    {
-        return $this->brand;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
      *
-     * @return Product
+     * @return Category
      */
     public function setDescription($description)
     {
@@ -135,29 +97,5 @@ class Product
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set price
-     *
-     * @param string $price
-     *
-     * @return Product
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->price;
     }
 }

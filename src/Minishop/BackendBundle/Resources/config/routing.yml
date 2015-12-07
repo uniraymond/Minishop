@@ -1,3 +1,11 @@
+minishop_backend_admin_product:
+    resource: "@MinishopBackendBundle/Resources/config/routing/product.yml"
+    prefix:   /admin_product
+
+minishop_backend_admin_category:
+    resource: "@MinishopBackendBundle/Resources/config/routing/category.yml"
+    prefix:   /admin_category
+
 minishop_backend_homepage:
     path:     /hello/{name}
     defaults: { _controller: MinishopBackendBundle:Default:index }
