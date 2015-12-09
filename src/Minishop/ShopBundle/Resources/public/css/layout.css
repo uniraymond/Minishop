@@ -1,0 +1,15 @@
+h1 {color: #1f3346;}
+
+a#logo {
+    text-align: center;
+    width: 100%;
+    display: block;
+    height: 60px;
+    margin: 20px;
+}
+
+div.clear_fix {clear: both;}
+
+.hide {display:none;}
+
+#loading {position: fixed; top: 0px; width: 100%; text-align: center;}

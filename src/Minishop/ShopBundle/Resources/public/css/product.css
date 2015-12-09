@@ -1,0 +1,33 @@
+ul.category_ul {
+    margin: 5px;
+}
+
+ul.category_ul li {
+    list-style: none;
+    margin: 5px;
+}
+
+ul.title {
+    float: left;
+    clear: both;
+    width: 100%;
+    font-weight: bold;
+}
+
+ul.product_content {
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+ul.title li, ul.product_content li {
+    float: left;
+    list-style: none;
+    width: 20%;
+    display: block;
+    border-top: 1px solid #CCC;
+}
+
+ul.product_content li.button a {
+    margin: 3px;
+}
