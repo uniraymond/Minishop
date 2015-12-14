@@ -23,6 +23,11 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Minishop\ShopBundle\Entity\Order", mappedBy="user")
+     */
+    private $orders;
+
     public function __construct()
     {
         parent::__construct();

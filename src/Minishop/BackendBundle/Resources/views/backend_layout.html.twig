@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>{% block title %}Mini Shop BACKEND!{% endblock %}</title>
+  {% block stylesheets %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ asset('bundles/minishopshop/css/layout.css') }}" type="text/css" media="all" />
+  {% endblock %}
+  <link rel="icon" type="image/x-icon" href="{{ asset('bundles/minishopshop/images/favicon.ico') }}" />
+</head>
+<body>
+<div id="loading" class="hide"><img src="{{ asset('bundles/minishopshop/images/loading.gif') }}" /></div>
+<div id="container">
+  <div id="header">
+    <div class="content">
+      <h1>
+        <a href="" id="logo">
+          <img src="{{ asset('bundles/minishopshop/images/logo.png') }}" alt="Mini Shop" />
+        </a>
+      </h1>
+
+      <div id="sub_header">
+
+      </div>
+    </div>
+  </div>
+
+  <div id="content">
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+      <div class="flash_notice">
+        {{ flashMessage }}
+      </div>
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('error') %}
+      <div class="flash_error">
+        {{ flashMessage }}
+      </div>
+    {% endfor %}
+
+    <div class="content">
+      {% block content %}
+      {% endblock %}
+      {% block body %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+{% block javascripts %}
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+{% endblock %}
+</body>
+</html>

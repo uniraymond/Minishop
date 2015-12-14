@@ -24,20 +24,6 @@ class Order
     /**
      * @var integer
      *
-     * @ORM\Column(name="product_id", type="integer", nullable=false)
-     */
-    private $productId;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="integer", nullable=false)
-     */
-    private $userId;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="amount", type="integer", nullable=true)
      */
     private $amount;
@@ -49,7 +35,17 @@ class Order
      */
     private $orderDate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="products")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Minishop\UserBundle\Entity\User", inversedBy="users")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * Get id

@@ -17,7 +17,7 @@ class Product
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -45,10 +45,31 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="price", type="decimal", scale=2, nullable=true)
      */
     private $price;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Order", mappedBy="product")
+     */
+    private $orders;
+
+    public function setCategory(\Minishop\ShopBundle\Entity\Category $category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
 
     public function __toString()
     {
