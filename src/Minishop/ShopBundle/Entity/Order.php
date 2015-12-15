@@ -153,4 +153,52 @@ class Order
     {
         return $this->orderDate;
     }
+
+    /**
+     * Set product
+     *
+     * @param \Minishop\ShopBundle\Entity\Product $product
+     *
+     * @return Order
+     */
+    public function setProduct(\Minishop\ShopBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Minishop\ShopBundle\Entity\Product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Minishop\UserBundle\Entity\User $user
+     *
+     * @return Order
+     */
+    public function setUser(\Minishop\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Minishop\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

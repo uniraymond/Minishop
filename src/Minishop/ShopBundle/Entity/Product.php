@@ -181,4 +181,46 @@ class Product
     {
         return $this->price;
     }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->orders = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add order
+     *
+     * @param \Minishop\ShopBundle\Entity\Order $order
+     *
+     * @return Product
+     */
+    public function addOrder(\Minishop\ShopBundle\Entity\Order $order)
+    {
+        $this->orders[] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Remove order
+     *
+     * @param \Minishop\ShopBundle\Entity\Order $order
+     */
+    public function removeOrder(\Minishop\ShopBundle\Entity\Order $order)
+    {
+        $this->orders->removeElement($order);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
 }

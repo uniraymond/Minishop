@@ -1,0 +1,10 @@
+category:
+    path:     /
+    defaults: { _controller: "MinishopShopBundle:Category:index" }
+
+category_show:
+    path:     /{id}/show
+    defaults: { _controller: "MinishopShopBundle:Category:show" }
+
+
+

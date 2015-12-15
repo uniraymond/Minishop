@@ -1,0 +1,98 @@
+{% extends 'MinishopShopBundle::layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/minishopshop/css/product.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block body -%}
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Product list</h1>
+            <ul class="title">
+                <li>Name</li>
+                <li>Brand</li>
+                <li>Description</li>
+                <li>Price</li>
+                <li>Actions</li>
+            </ul>
+            {% for entity in entities %}
+                <ul class="product_content" id="product_content_{{ entity.id }}">
+                    <li>{{ entity.name }}</li>
+                    <li>{{ entity.brand }}</li>
+                    <li>{{ entity.description | length>30 ? entity.description|slice(0,30) ~ '...' : entity.description }}</li>
+                    <li>{{ entity.price }}</li>
+                    <li class="button">
+                        <button id="show_button_{{ entity.id }}" onclick="showProduct( '{{ url('product_show', { 'id': entity.id }) }}' , {{ entity.id }} )" class="btn btn-xs btn-primary">
+                            show
+                        </button>
+                        <button id="hide_button_{{ entity.id }}" onclick="hideProduct( {{ entity.id }} )" class="btn btn-xs btn-primary hide">
+                            hide
+                        </button>
+                    </li>
+                </ul>
+                <div class="clear-fix"></div>
+                <div id="product_content_details_block_{{ entity.id }}"></div>
+            {% endfor %}
+            {#<table class="table table-hover">#}
+                {#<thead>#}
+                {#<tr>#}
+                    {#<th>Name</th>#}
+                    {#<th>Brand</th>#}
+                    {#<th>Description</th>#}
+                    {#<th>Price</th>#}
+                    {#<th>Actions</th>#}
+                {#</tr>#}
+                {#</thead>#}
+                {#<tbody>#}
+                {#{% for entity in entities %}#}
+                    {#<tr>#}
+                        {#<td>{{ entity.name }}</td>#}
+                        {#<td>{{ entity.brand }}</td>#}
+                        {#<td>{{ entity.description | length>30 ? entity.description|slice(0,30) ~ '...' : entity.description }}</td>#}
+                        {#<td>{{ entity.price }}</td>#}
+                        {#<td><a href="{{ path('product_show', { 'id': entity.id }) }}">show</a></td>#}
+                    {#</tr>#}
+                {#{% endfor %}#}
+                {#</tbody>#}
+            {#</table>#}
+        </div>
+        <div class="col-md-3 ">
+            <h3>Category</h3>
+            <ul class="category_ul" >
+                {% for category in categories %}
+                <li>
+                    <a href={{ path('category') }} id="category_menu"> {{ category.name }} </a>
+                </li>
+                {% endfor %}
+            </ulcategory_ul>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        function showProduct(showUrl, productId) {
+            $.ajax({
+                url: showUrl,
+                type: 'GET',
+                data: {'id': productId},
+                dataType: 'text',
+            beforeSend: function() {
+                $('#loading').removeClass('hide');
+            },
+                success: function(data) {
+                    $('#loading').addClass('hide');
+                    $('#product_content_details_block_' + productId).html(data);
+                    $('#show_button_' + productId).addClass('hide');
+                    $('#hide_button_' + productId).removeClass('hide');
+                }
+            });
+            return false;
+        };
+
+        var hideProduct = function(productId) {
+            $('#product_content_details_block_' + productId).html('');
+            $('#show_button_' + productId).removeClass('hide');
+            $('#hide_button_' + productId).addClass('hide');
+        };
+    </script>
+    {% endblock %}
