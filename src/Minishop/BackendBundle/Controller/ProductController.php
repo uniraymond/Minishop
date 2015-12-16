@@ -95,7 +95,8 @@ class ProductController extends Controller
           'brand' => $product->getBrand(),
           'description' => $product->getDescription(),
           'price' => $product->getPrice(),
-          'category' => $product->getCategory()
+          'category' => $product->getCategory()->getName(),
+          'product_link' => $this->generateUrl('admin_product_show', array('id' => $product->getId()))
       )));
       $response->headers->set('Content-Type', 'application/json');
       return $response;
@@ -175,8 +176,7 @@ class ProductController extends Controller
   {
     $em = $this->getDoctrine()->getManager();
 
-    $entity = $em->getRepository('MinishopBackendBundle:Product')->find($id);
-
+    $entity = $em->getRepository('MinishopShopBundle:Product')->find($id);
     if (!$entity) {
       throw $this->createNotFoundException('Unable to find Product entity.');
     }
@@ -186,7 +186,7 @@ class ProductController extends Controller
 
     return $this->render('MinishopBackendBundle:Product:edit.html.twig', array(
         'entity'      => $entity,
-        'edit_form'   => $editForm->createView(),
+        'form'   => $editForm->createView(),
         'delete_form' => $deleteForm->createView(),
     ));
   }
@@ -217,7 +217,7 @@ class ProductController extends Controller
   {
     $em = $this->getDoctrine()->getManager();
 
-    $entity = $em->getRepository('MinishopBackendBundle:Product')->find($id);
+    $entity = $em->getRepository('MinishopShopBundle:Product')->find($id);
 
     if (!$entity) {
       throw $this->createNotFoundException('Unable to find Product entity.');
@@ -230,12 +230,23 @@ class ProductController extends Controller
     if ($editForm->isValid()) {
       $em->flush();
 
-      return $this->redirect($this->generateUrl('admin_product_edit', array('id' => $id)));
+//      return $this->redirect($this->generateUrl('admin_product_edit', array('id' => $id)));
+      $response = new Response(json_encode(array(
+          'id' => $entity->getId(),
+          'name' => $entity->getName(),
+          'brand' => $entity->getBrand(),
+          'description' => $entity->getDescription(),
+          'price' => $entity->getPrice(),
+          'category' => $entity->getCategory()->getName(),
+          'product_link' => $this->generateUrl('admin_product_show', array('id' => $entity->getId()))
+      )));
+      $response->headers->set('Content-Type', 'application/json');
+      return $response;
     }
 
     return $this->render('MinishopBackendBundle:Product:edit.html.twig', array(
         'entity'      => $entity,
-        'edit_form'   => $editForm->createView(),
+        'form'   => $editForm->createView(),
         'delete_form' => $deleteForm->createView(),
     ));
   }

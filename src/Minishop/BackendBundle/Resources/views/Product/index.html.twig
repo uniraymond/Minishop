@@ -23,83 +23,50 @@
         </thead>
         <tbody>
         {% for entity in entities %}
-            <tr>
+            <tr id="admin_product_tr_{{ entity.id }}">
                 <td><a href="{{ path('admin_product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.brand }}</td>
                 <td>{{ entity.description | length>30 ? entity.description|slice(0,30) ~ '...' : entity.description }}</td>
                 <td>{{ entity.price }}</td>
                 <td>{{ entity.category.name }}</td>
-                <td><a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">edit</a></td>
+                <td>
+                    <button class="btn btn-primary" id="edit_product_button_{{ entity.id }}" onclick='loadEditProductForm("{{ path('admin_product_edit', { 'id': entity.id }) }}");' >
+                        Edit
+                    </button>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     <div class="new_product_form">
         <div class="">
-            <a href="#" class="btn btn-primary" id="create_new_button" onclick="loadNewProductForm()">
+            <button class="btn btn-primary" id="create_new_button" onclick="loadNewProductForm()">
                 Create a new product
-            </a>
+            </button>
         </div>
         <div class="" id="product_form" style="display:block;">
-            <div class="col-sm-12 form-title"><h2>New Product</h2></div>
-
-            <form class="form-horizontal" action="#" method="post" onsubmit="createProduct(); return false;" {{ form_enctype(form) }}>
-                <div class="error">{{ form_errors(form) }}</div>
-                <div class="form-group">
-                    {{ form_label(form.name, 'Name:', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    <div class="col-sm-10">
-                        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.brand, 'Brand:', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    <div class="col-sm-10">
-                        {{ form_widget(form.brand, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.description, 'Description:', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    <div class="col-sm-10">
-                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.price, 'Price:', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    <div class="col-sm-10">
-                        {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.category, 'Category:', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    {#<label class="col-sm-2 control-label" for="cateory">Category:</label>#}
-                    <div class="col-sm-10">
-                        {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-                        {#<button name="form[submit]" type="submit" class="btn btn-primary">Save</button>#}
-                        <button type="reset" class="btn btn-primary">Reset</button>
-                        <button type="button" class="btn btn-default" onclick="closeProductForm();">Cancle</button>
-                        {{ form_rest(form) }}
-
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
         </div>
     </div>
     <script type="text/javascript">
+//        $(document).ready(function() {});
+
+        {#{{ path('admin_product_edit', { 'id': entity.id }) }}#}
+        var loadEditProductForm = function(editurl) {
+            console.log(editurl);
+            $('#product_form').empty().load(editurl).slideDown(500);
+            return false;
+        };
+
         var loadNewProductForm = function() {
-            $('#product_form').slideDown(500);
+            $('#product_form').empty().load("{{ path('admin_product_new') }}").slideDown(500);
             return false;
         };
 
         var closeProductForm = function() {
-            $('#product_form').slideUp(500);
+            $('#product_form').slideUp(500).empty();
         };
 
         var createProduct = function() {
@@ -121,7 +88,35 @@
                 success: function(data) {
                     $('#loading').addClass('hide');
                     console.log(data);
-                    $('#product_table_list').append('<tr><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td></tr>');
+                    $('#product_table_list').append('<tr><td><a href="'+ data.product_link +'">' + data.id + '</a> </td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td><td>' + 'Edit' + '</td></tr>');
+                    return false;
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+            return false;
+        };
+
+        var updateProduct = function(updateUrl) {
+            var form_var = $('#product_form form');
+//            var updateUrl = form_var.attr('action');
+            var form_method = form_var.attr('method');
+            var form_data = form_var.serialize();
+
+            console.log(form_data);
+            $.ajax({
+                url: updateUrl,
+                type: form_method,
+                data: form_data,
+                dataType: 'json',
+                beforeSend: function() {
+                    $('#loading').removeClass('hide');
+                },
+                success: function(data) {
+                    $('#loading').addClass('hide');
+                    console.log(data);
+                    $('#admin_product_tr_'+ data.id).html('<td><a href="'+ data.product_link +'">' + data.id + '</a> </td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td><td><button class="btn btn-primary" id="edit_product_button_' + data.id + '">' + 'Edit' + '</button></td>');
                     return false;
                 },
                 error: function(e) {
