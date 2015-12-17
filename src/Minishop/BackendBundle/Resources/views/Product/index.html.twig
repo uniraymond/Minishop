@@ -34,6 +34,7 @@
                     <button class="btn btn-primary" id="edit_product_button_{{ entity.id }}" onclick='loadEditProductForm("{{ path('admin_product_edit', { 'id': entity.id }) }}");' >
                         Edit
                     </button>
+                    <button class="btn btn-defalt" onclick="deleteProduct('{{ path('admin_product_delete', {'id': entity.id}) }}')"; return false; >Delete</button>
                 </td>
             </tr>
         {% endfor %}
@@ -88,7 +89,7 @@
                 success: function(data) {
                     $('#loading').addClass('hide');
                     console.log(data);
-                    $('#product_table_list').append('<tr><td><a href="'+ data.product_link +'">' + data.id + '</a> </td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td><td>' + 'Edit' + '</td></tr>');
+                    $('#product_table_list').append('<tr><td><a href="'+ data.product_link +'">' + data.id + '</a> </td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td><button class="btn btn-primary" id="edit_product_button_' + data.id + ' "onclick="loadEditProductForm(' + data.product_edit_link + ')">' + 'Edit' + '</button><</tr>');
                     return false;
                 },
                 error: function(e) {
@@ -100,7 +101,6 @@
 
         var updateProduct = function(updateUrl) {
             var form_var = $('#product_form form');
-//            var updateUrl = form_var.attr('action');
             var form_method = form_var.attr('method');
             var form_data = form_var.serialize();
 
@@ -116,13 +116,41 @@
                 success: function(data) {
                     $('#loading').addClass('hide');
                     console.log(data);
-                    $('#admin_product_tr_'+ data.id).html('<td><a href="'+ data.product_link +'">' + data.id + '</a> </td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td><td><button class="btn btn-primary" id="edit_product_button_' + data.id + '">' + 'Edit' + '</button></td>');
+//                    var editlink = "'" + data.product_edit_link + "'"
+                    $('#admin_product_tr_'+ data.id).html('<td><a href="'+ data.product_link +'">' + data.id + '</a> </td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td><td><button class="btn btn-primary" id="edit_product_button_' + data.id + ' "onclick="loadEditProductForm(' + data.product_edit_link + ')">' + 'Edit' + '</button></td>');
                     return false;
                 },
                 error: function(e) {
                     console.log(e);
                 }
             });
+            return false;
+        };
+
+        var deleteProduct = function(deleteUrl) {
+            var form_var = $('#product_form form');
+            var conf = confirm('Are you sure DELETE this item?');
+            if (conf) {
+                $.ajax({
+                    url: deleteUrl,
+                    type: 'POST',
+                    data: '',
+                    dataType: 'json',
+                    beforeSend: function() {
+                        $('#loading').removeClass('hide');
+                    },
+                    success: function(data) {
+                        $('#loading').addClass('hide');
+                        console.log(data.id);
+                        $('#admin_product_tr_'+ data.id).remove();
+                        return false;
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                });
+            }
+
             return false;
         };
     </script>

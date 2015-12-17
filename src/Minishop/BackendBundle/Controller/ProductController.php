@@ -24,11 +24,10 @@ class ProductController extends Controller
    */
   public function indexAction(Request $request)
   {
-
     $em = $this->getDoctrine()->getManager()
         ->createQuery(
             'SELECT p, c FROM MinishopShopBundle:Product p
-                 JOIN p.category c'
+                 JOIN p.category c ORDER BY p.category ASC, p.id'
         );
     $entities = $em->getResult();
 
@@ -96,7 +95,8 @@ class ProductController extends Controller
           'description' => $product->getDescription(),
           'price' => $product->getPrice(),
           'category' => $product->getCategory()->getName(),
-          'product_link' => $this->generateUrl('admin_product_show', array('id' => $product->getId()))
+          'product_link' => $this->generateUrl('admin_product_show', array('id' => $product->getId())),
+          'product_edit_link' => "'".$this->generateUrl('admin_product_edit', array('id' => $product->getId()))."'"
       )));
       $response->headers->set('Content-Type', 'application/json');
       return $response;
@@ -226,22 +226,27 @@ class ProductController extends Controller
     $deleteForm = $this->createDeleteForm($id);
     $editForm = $this->createEditForm($entity);
     $editForm->handleRequest($request);
-
     if ($editForm->isValid()) {
       $em->flush();
 
 //      return $this->redirect($this->generateUrl('admin_product_edit', array('id' => $id)));
-      $response = new Response(json_encode(array(
-          'id' => $entity->getId(),
-          'name' => $entity->getName(),
-          'brand' => $entity->getBrand(),
-          'description' => $entity->getDescription(),
-          'price' => $entity->getPrice(),
-          'category' => $entity->getCategory()->getName(),
-          'product_link' => $this->generateUrl('admin_product_show', array('id' => $entity->getId()))
-      )));
-      $response->headers->set('Content-Type', 'application/json');
-      return $response;
+
+      if($request->isXmlHttpRequest()) {
+        $response = new Response(json_encode(array(
+            'id' => $entity->getId(),
+            'name' => $entity->getName(),
+            'brand' => $entity->getBrand(),
+            'description' => $entity->getDescription(),
+            'price' => $entity->getPrice(),
+            'category' => $entity->getCategory()->getName(),
+            'product_link' => $this->generateUrl('admin_product_show', array('id' => $entity->getId())),
+            'product_edit_link' => "'".$this->generateUrl('admin_product_edit', array('id' => $entity->getId()))."'"
+        )));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+      } else {
+        return $this->redirect($this->generateUrl('admin_product_show', array('id' => $product->getId())));
+      }
     }
 
     return $this->render('MinishopBackendBundle:Product:edit.html.twig', array(
@@ -256,22 +261,33 @@ class ProductController extends Controller
    */
   public function deleteAction(Request $request, $id)
   {
-    $form = $this->createDeleteForm($id);
-    $form->handleRequest($request);
-
-    if ($form->isValid()) {
+//    $form = $this->createDeleteForm($id);
+//    $form->handleRequest($request);
+//    if ($form->isValid()) {
       $em = $this->getDoctrine()->getManager();
-      $entity = $em->getRepository('MinishopBackendBundle:Product')->find($id);
+      $entity = $em->getRepository('MinishopShopBundle:Product')->find($id);
 
+//    var_dump($entity);exit;
       if (!$entity) {
         throw $this->createNotFoundException('Unable to find Product entity.');
       }
 
       $em->remove($entity);
       $em->flush();
-    }
 
-    return $this->redirect($this->generateUrl('admin_product'));
+      if($request->isXmlHttpRequest()) {
+        $response = new Response(json_encode(array(
+            'id' => $id,
+        )));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+      } else {
+        return $this->redirect($this->generateUrl('admin_product'));
+      }
+
+//    }
+//
+//    return $this->redirect($this->generateUrl('admin_product'));
   }
 
   /**
