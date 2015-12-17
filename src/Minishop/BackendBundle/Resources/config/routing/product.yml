@@ -1,0 +1,30 @@
+admin_product:
+    path:     /
+    defaults: { _controller: "MinishopBackendBundle:Product:index" }
+
+admin_product_show:
+    path:     /{id}/show
+    defaults: { _controller: "MinishopBackendBundle:Product:show" }
+
+admin_product_new:
+    path:     /new
+    defaults: { _controller: "MinishopBackendBundle:Product:new" }
+
+admin_product_create:
+    path:     /create
+    defaults: { _controller: "MinishopBackendBundle:Product:create" }
+    methods:  POST
+
+admin_product_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MinishopBackendBundle:Product:edit" }
+
+admin_product_update:
+    path:     /{id}/update
+    defaults: { _controller: "MinishopBackendBundle:Product:update" }
+    methods:  [POST, PUT]
+
+admin_product_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MinishopBackendBundle:Product:delete" }
+    methods:  [POST, DELETE]

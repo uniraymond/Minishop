@@ -1,0 +1,7 @@
+product:
+    path:     /
+    defaults: { _controller: "MinishopShopBundle:Product:index" }
+
+product_show:
+    path:     /show/{id}
+    defaults: { _controller: "MinishopShopBundle:Product:show" }

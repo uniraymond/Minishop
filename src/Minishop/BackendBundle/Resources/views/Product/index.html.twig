@@ -1,0 +1,157 @@
+{% extends 'MinishopBackendBundle::backend_layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/minishopbackend/css/admin_product_index.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block body -%}
+<div class="row">
+    <div class="col-md-12">
+    <h1>Product list</h1>
+
+    <table class="records_list table" id="product_table_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr id="admin_product_tr_{{ entity.id }}">
+                <td><a href="{{ path('admin_product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.brand }}</td>
+                <td>{{ entity.description | length>30 ? entity.description|slice(0,30) ~ '...' : entity.description }}</td>
+                <td>{{ entity.price }}</td>
+                <td>{{ entity.category.name }}</td>
+                <td>
+                    <button class="btn btn-primary" id="edit_product_button_{{ entity.id }}" onclick='loadEditProductForm("{{ path('admin_product_edit', { 'id': entity.id }) }}");' >
+                        Edit
+                    </button>
+                    <button class="btn btn-defalt" onclick="deleteProduct('{{ path('admin_product_delete', {'id': entity.id}) }}')"; return false; >Delete</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="new_product_form">
+        <div class="">
+            <button class="btn btn-primary" id="create_new_button" onclick="loadNewProductForm()">
+                Create a new product
+            </button>
+        </div>
+        <div class="" id="product_form" style="display:block;">
+        </div>
+    </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+//        $(document).ready(function() {});
+
+        {#{{ path('admin_product_edit', { 'id': entity.id }) }}#}
+        var loadEditProductForm = function(editurl) {
+            console.log(editurl);
+            $('#product_form').empty().load(editurl).slideDown(500);
+            return false;
+        };
+
+        var loadNewProductForm = function() {
+            $('#product_form').empty().load("{{ path('admin_product_new') }}").slideDown(500);
+            return false;
+        };
+
+        var closeProductForm = function() {
+            $('#product_form').slideUp(500).empty();
+        };
+
+        var createProduct = function() {
+            var form_var = $('#product_form form');
+            var url = "{{ path('admin_product_create') }}";
+            var createUrl = form_var.attr('action');
+            var form_method = form_var.attr('method');
+            var form_data = form_var.serialize();
+
+            console.log(form_data);
+            $.ajax({
+                url: url,
+                type: form_method,
+                data: form_data,
+                dataType: 'json',
+                beforeSend: function() {
+                    $('#loading').removeClass('hide');
+                },
+                success: function(data) {
+                    $('#loading').addClass('hide');
+                    console.log(data);
+                    $('#product_table_list').append('<tr><td><a href="'+ data.product_link +'">' + data.id + '</a> </td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td><button class="btn btn-primary" id="edit_product_button_' + data.id + ' "onclick="loadEditProductForm(' + data.product_edit_link + ')">' + 'Edit' + '</button><</tr>');
+                    return false;
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+            return false;
+        };
+
+        var updateProduct = function(updateUrl) {
+            var form_var = $('#product_form form');
+            var form_method = form_var.attr('method');
+            var form_data = form_var.serialize();
+
+            console.log(form_data);
+            $.ajax({
+                url: updateUrl,
+                type: form_method,
+                data: form_data,
+                dataType: 'json',
+                beforeSend: function() {
+                    $('#loading').removeClass('hide');
+                },
+                success: function(data) {
+                    $('#loading').addClass('hide');
+                    console.log(data);
+//                    var editlink = "'" + data.product_edit_link + "'"
+                    $('#admin_product_tr_'+ data.id).html('<td><a href="'+ data.product_link +'">' + data.id + '</a> </td><td>' + data.name + '</td><td>' + data.brand + '</td><td>' + data.description + '</td><td>' + data.price + '</td><td>' + data.category + '</td><td><button class="btn btn-primary" id="edit_product_button_' + data.id + ' "onclick="loadEditProductForm(' + data.product_edit_link + ')">' + 'Edit' + '</button></td>');
+                    return false;
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+            return false;
+        };
+
+        var deleteProduct = function(deleteUrl) {
+            var form_var = $('#product_form form');
+            var conf = confirm('Are you sure DELETE this item?');
+            if (conf) {
+                $.ajax({
+                    url: deleteUrl,
+                    type: 'POST',
+                    data: '',
+                    dataType: 'json',
+                    beforeSend: function() {
+                        $('#loading').removeClass('hide');
+                    },
+                    success: function(data) {
+                        $('#loading').addClass('hide');
+                        console.log(data.id);
+                        $('#admin_product_tr_'+ data.id).remove();
+                        return false;
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                });
+            }
+
+            return false;
+        };
+    </script>
+    {% endblock %}
