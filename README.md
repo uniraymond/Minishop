@@ -6,7 +6,7 @@ A Sample Symfony2 Project
 
 and the command will be using 
 
-1. php symfony new smallshop
+1. php symfony new Minishop
 2. php app/console generate:bundle --namespace=Minishop/ShopBundle --format=yml
 
 3. open parameter.yml to setup database
