@@ -12,3 +12,5 @@
 !app/logs/.gitkeep
 /app/phpunit.xml
 .idea/*
+/web/cov/*
+/web/cov/.gitkeep
