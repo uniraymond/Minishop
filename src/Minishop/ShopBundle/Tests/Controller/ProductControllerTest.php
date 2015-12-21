@@ -6,6 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ProductControllerTest extends WebTestCase
 {
+    public function testShow()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $this->assertTrue($crawler->filter('branch:contains("Goldair")')->count() > 0);
+
+    }
     /*
     public function testCompleteScenario()
     {
