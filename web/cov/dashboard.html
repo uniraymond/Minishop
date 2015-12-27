@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/raymond/opt/www/symfony/minishop/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/nv.d3.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">/Users/raymond/opt/www/symfony/minishop/src</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#13">Order</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/DependencyInjection/MinishopShopExtension.php.html#15">MinishopShopExtension</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Form/ProductType.php.html#9">ProductType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/UserBundle/DependencyInjection/MinishopUserExtension.php.html#15">MinishopUserExtension</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/UserBundle/Entity/User.php.html#17">User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/UserBundle/Controller/DefaultController.php.html#7">DefaultController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/DataFixtures/ORM/LoadProductData.php.html#16">LoadProductData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/UserBundle/DependencyInjection/Configuration.php.html#13">Configuration</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/CategoryController.php.html#14">CategoryController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/DataFixtures/ORM/LoadCategoryData.php.html#16">LoadCategoryData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/BackendBundle/DependencyInjection/MinishopBackendExtension.php.html#15">MinishopBackendExtension</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Form/CategoryType.php.html#9">CategoryType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#14">Category</a></td><td class="text-right">6%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#13">Product</a></td><td class="text-right">20%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/ProductController.php.html#16">ProductController</a></td><td class="text-right">37%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#13">Order</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#13">Product</a></td><td class="text-right">160</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#14">Category</a></td><td class="text-right">109</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/CategoryController.php.html#14">CategoryController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/ProductController.php.html#16">ProductController</a></td><td class="text-right">5</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#200"><abbr title="Order::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#188"><abbr title="Order::setUser">setUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#63"><abbr title="Product::setCategory">setCategory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#69"><abbr title="Product::getCategory">getCategory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#74"><abbr title="Product::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#176"><abbr title="Order::getProduct">getProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#164"><abbr title="Order::setProduct">setProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#115"><abbr title="Order::setAmount">setAmount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#103"><abbr title="Order::getUserId">getUserId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#127"><abbr title="Order::getAmount">getAmount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#139"><abbr title="Order::setOrderDate">setOrderDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#152"><abbr title="Order::getOrderDate">getOrderDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#96"><abbr title="Product::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#120"><abbr title="Product::setBrand">setBrand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Form/ProductType.php.html#29"><abbr title="ProductType::setDefaultOptions">setDefaultOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Form/ProductType.php.html#15"><abbr title="ProductType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Form/ProductType.php.html#39"><abbr title="ProductType::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/UserBundle/DependencyInjection/MinishopUserExtension.php.html#20"><abbr title="MinishopUserExtension::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/UserBundle/Entity/User.php.html#31"><abbr title="User::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#222"><abbr title="Product::getOrders">getOrders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#212"><abbr title="Product::removeOrder">removeOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#144"><abbr title="Product::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#168"><abbr title="Product::setPrice">setPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#188"><abbr title="Product::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#200"><abbr title="Product::addOrder">addOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#91"><abbr title="Order::setUserId">setUserId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#79"><abbr title="Order::getProductId">getProductId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Form/CategoryType.php.html#36"><abbr title="CategoryType::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Form/CategoryType.php.html#26"><abbr title="CategoryType::setDefaultOptions">setDefaultOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/DataFixtures/ORM/LoadCategoryData.php.html#18"><abbr title="LoadCategoryData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/DataFixtures/ORM/LoadCategoryData.php.html#44"><abbr title="LoadCategoryData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/DataFixtures/ORM/LoadProductData.php.html#18"><abbr title="LoadProductData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Form/CategoryType.php.html#15"><abbr title="CategoryType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/BackendBundle/DependencyInjection/MinishopBackendExtension.php.html#20"><abbr title="MinishopBackendExtension::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/CategoryController.php.html#21"><abbr title="CategoryController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/CategoryController.php.html#36"><abbr title="CategoryController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/ProductController.php.html#40"><abbr title="ProductController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/UserBundle/DependencyInjection/Configuration.php.html#18"><abbr title="Configuration::getConfigTreeBuilder">getConfigTreeBuilder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/DataFixtures/ORM/LoadProductData.php.html#107"><abbr title="LoadProductData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/DependencyInjection/MinishopShopExtension.php.html#20"><abbr title="MinishopShopExtension::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#130"><abbr title="Category::removeProduct">removeProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#118"><abbr title="Category::addProduct">addProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#140"><abbr title="Category::getProducts">getProducts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#55"><abbr title="Order::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#67"><abbr title="Order::setProductId">setProductId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#106"><abbr title="Category::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#94"><abbr title="Category::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#44"><abbr title="Category::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#49"><abbr title="Category::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#58"><abbr title="Category::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#70"><abbr title="Category::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Minishop/UserBundle/Controller/DefaultController.php.html#9"><abbr title="DefaultController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Product.php.html#74"><abbr title="Product::__toString">__toString</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Order.php.html#139"><abbr title="Order::setOrderDate">setOrderDate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Entity/Category.php.html#49"><abbr title="Category::__toString">__toString</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/ProductController.php.html#40"><abbr title="ProductController::showAction">showAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Minishop/ShopBundle/Controller/CategoryController.php.html#36"><abbr title="CategoryController::showAction">showAction</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 3.0.2</a> using <a href="http://php.net/" target="_top">PHP 5.6.10</a> and <a href="https://phpunit.de/">PHPUnit 5.1.3</a> at Tue Dec 22 9:07:42 NZDT 2015.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/holder.min.js" type="text/javascript"></script>
+  <script src="js/d3.min.js" type="text/javascript"></script>
+  <script src="js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([12,1,0,1,1,0,0,0,0,0,0,4], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([52,0,0,0,0,0,0,0,0,0,0,7], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"AppBundle\/AppBundle.php.html#7\">AppBundle<\/a>"],[0,1,"<a href=\"Minishop\/UserBundle\/Controller\/DefaultController.php.html#7\">DefaultController<\/a>"],[0,3,"<a href=\"Minishop\/ShopBundle\/Controller\/CategoryController.php.html#14\">CategoryController<\/a>"],[37.5,3,"<a href=\"Minishop\/ShopBundle\/Controller\/ProductController.php.html#16\">ProductController<\/a>"],[0,1,"<a href=\"Minishop\/UserBundle\/DependencyInjection\/Configuration.php.html#13\">Configuration<\/a>"],[0,1,"<a href=\"Minishop\/BackendBundle\/DependencyInjection\/MinishopBackendExtension.php.html#15\">MinishopBackendExtension<\/a>"],[0,3,"<a href=\"Minishop\/ShopBundle\/Form\/CategoryType.php.html#9\">CategoryType<\/a>"],[100,0,"<a href=\"Minishop\/BackendBundle\/MinishopBackendBundle.php.html#7\">MinishopBackendBundle<\/a>"],[0,2,"<a href=\"Minishop\/ShopBundle\/DataFixtures\/ORM\/LoadCategoryData.php.html#16\">LoadCategoryData<\/a>"],[0,2,"<a href=\"Minishop\/ShopBundle\/DataFixtures\/ORM\/LoadProductData.php.html#16\">LoadProductData<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/DependencyInjection\/MinishopShopExtension.php.html#15\">MinishopShopExtension<\/a>"],[6.66666666667,11,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#14\">Category<\/a>"],[0,14,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#13\">Order<\/a>"],[20.8333333333,17,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#13\">Product<\/a>"],[0,3,"<a href=\"Minishop\/ShopBundle\/Form\/ProductType.php.html#9\">ProductType<\/a>"],[100,0,"<a href=\"Minishop\/ShopBundle\/MinishopShopBundle.php.html#7\">MinishopShopBundle<\/a>"],[0,1,"<a href=\"Minishop\/UserBundle\/DependencyInjection\/MinishopUserExtension.php.html#15\">MinishopUserExtension<\/a>"],[0,1,"<a href=\"Minishop\/UserBundle\/Entity\/User.php.html#17\">User<\/a>"],[100,0,"<a href=\"Minishop\/UserBundle\/MinishopUserBundle.php.html#7\">MinishopUserBundle<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Minishop\/UserBundle\/Controller\/DefaultController.php.html#9\">DefaultController::indexAction<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Controller\/CategoryController.php.html#21\">CategoryController::indexAction<\/a>"],[0,2,"<a href=\"Minishop\/ShopBundle\/Controller\/CategoryController.php.html#36\">CategoryController::showAction<\/a>"],[100,1,"<a href=\"Minishop\/ShopBundle\/Controller\/ProductController.php.html#23\">ProductController::indexAction<\/a>"],[0,2,"<a href=\"Minishop\/ShopBundle\/Controller\/ProductController.php.html#40\">ProductController::showAction<\/a>"],[0,1,"<a href=\"Minishop\/UserBundle\/DependencyInjection\/Configuration.php.html#18\">Configuration::getConfigTreeBuilder<\/a>"],[0,1,"<a href=\"Minishop\/BackendBundle\/DependencyInjection\/MinishopBackendExtension.php.html#20\">MinishopBackendExtension::load<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Form\/CategoryType.php.html#15\">CategoryType::buildForm<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Form\/CategoryType.php.html#26\">CategoryType::setDefaultOptions<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Form\/CategoryType.php.html#36\">CategoryType::getName<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/DataFixtures\/ORM\/LoadCategoryData.php.html#18\">LoadCategoryData::load<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/DataFixtures\/ORM\/LoadCategoryData.php.html#44\">LoadCategoryData::getOrder<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/DataFixtures\/ORM\/LoadProductData.php.html#18\">LoadProductData::load<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/DataFixtures\/ORM\/LoadProductData.php.html#107\">LoadProductData::getOrder<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/DependencyInjection\/MinishopShopExtension.php.html#20\">MinishopShopExtension::load<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#44\">Category::__construct<\/a>"],[0,2,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#49\">Category::__toString<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#58\">Category::getId<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#70\">Category::setName<\/a>"],[100,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#82\">Category::getName<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#94\">Category::setDescription<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#106\">Category::getDescription<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#118\">Category::addProduct<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#130\">Category::removeProduct<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Category.php.html#140\">Category::getProducts<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#55\">Order::getId<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#67\">Order::setProductId<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#79\">Order::getProductId<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#91\">Order::setUserId<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#103\">Order::getUserId<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#115\">Order::setAmount<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#127\">Order::getAmount<\/a>"],[0,2,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#139\">Order::setOrderDate<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#152\">Order::getOrderDate<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#164\">Order::setProduct<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#176\">Order::getProduct<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#188\">Order::setUser<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Order.php.html#200\">Order::getUser<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#63\">Product::setCategory<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#69\">Product::getCategory<\/a>"],[0,2,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#74\">Product::__toString<\/a>"],[100,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#84\">Product::getId<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#96\">Product::setName<\/a>"],[100,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#108\">Product::getName<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#120\">Product::setBrand<\/a>"],[100,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#132\">Product::getBrand<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#144\">Product::setDescription<\/a>"],[100,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#156\">Product::getDescription<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#168\">Product::setPrice<\/a>"],[100,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#180\">Product::getPrice<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#188\">Product::__construct<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#200\">Product::addOrder<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#212\">Product::removeOrder<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Entity\/Product.php.html#222\">Product::getOrders<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Form\/ProductType.php.html#15\">ProductType::buildForm<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Form\/ProductType.php.html#29\">ProductType::setDefaultOptions<\/a>"],[0,1,"<a href=\"Minishop\/ShopBundle\/Form\/ProductType.php.html#39\">ProductType::getName<\/a>"],[0,1,"<a href=\"Minishop\/UserBundle\/DependencyInjection\/MinishopUserExtension.php.html#20\">MinishopUserExtension::load<\/a>"],[0,1,"<a href=\"Minishop\/UserBundle\/Entity\/User.php.html#31\">User::__construct<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

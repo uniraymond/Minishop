@@ -60,5 +60,4 @@ class ProductController extends Controller
 <li>'.$entity->getDescription().'</li>
 </ul></div></div>');
     }
-
 }

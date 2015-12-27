@@ -5,3 +5,11 @@ product:
 product_show:
     path:     /show/{id}
     defaults: { _controller: "MinishopShopBundle:Product:show" }
+
+#product_api:
+#    path:     /get_product_by_id/{product_id}
+#    defaults: { _controller: "MinishopShopBundle:Product:getProductById" }
+#    methods:  [GET]
+#    requirements:
+#        product_id: \d+
+

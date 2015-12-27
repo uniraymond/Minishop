@@ -13,6 +13,15 @@ minishop_shop:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+minishop_shop_api:
+    resource: "@MinishopShopBundle/Controller/Api"
+    type:     annotation
+#    prefix:   /api
+
 #app:
 #    resource: "@AppBundle/Controller/"
 #    type:     annotation
