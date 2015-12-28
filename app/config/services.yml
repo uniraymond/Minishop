@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
+    app.slugger:
+        class: Minishop\ShopBundle\Utils\Slugger
+        #how to use it $this->get('app.slugger')->slugify($post->getTitle());
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+

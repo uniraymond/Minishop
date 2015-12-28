@@ -24,19 +24,19 @@ class ProductController extends Controller
    */
   public function indexAction(Request $request)
   {
-    $em = $this->getDoctrine()->getManager()
-        ->createQuery(
-            'SELECT p, c FROM MinishopShopBundle:Product p
-                 JOIN p.category c ORDER BY p.category ASC, p.id'
-        );
-    $entities = $em->getResult();
+    $em = $this->getDoctrine()->getManager();
+//        ->createQuery(
+//            'SELECT p, c FROM MinishopShopBundle:Product p
+//                 JOIN p.category c ORDER BY p.category ASC, p.id'
+//        );
+    $entities = $em->getRepository('MinishopShopBundle:Product')->getProductWithCategory();
 
-    $cate = $this->getDoctrine()->getManager()
-        ->createQuery(
-            'SELECT c FROM MinishopShopBundle:Category c'
-        );
+    $cate = $this->getDoctrine()->getManager();
+//        ->createQuery(
+//            'SELECT c FROM MinishopShopBundle:Category c'
+//        );
 
-    $category_entities = $cate->getResult();
+    $category_entities = $cate->getRepository('MinishopShopBundle:Category')->findAll();
 
     $product = new Product();
     $form = $this->createCreateForm($product);
