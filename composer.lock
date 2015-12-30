@@ -893,12 +893,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "908f25385d0a87d57c3e256bb14c4b065e65db0d"
+                "reference": "649ea02e7b20838d8a2027819ba7ecc73431ca3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/908f25385d0a87d57c3e256bb14c4b065e65db0d",
-                "reference": "908f25385d0a87d57c3e256bb14c4b065e65db0d",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/649ea02e7b20838d8a2027819ba7ecc73431ca3a",
+                "reference": "649ea02e7b20838d8a2027819ba7ecc73431ca3a",
                 "shasum": ""
             },
             "require": {
@@ -970,7 +970,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2015-12-25 23:49:31"
+            "time": "2015-12-28 21:50:42"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -978,12 +978,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "e39b040e272c72f0a090c67d802e1d3b2d0b0313"
+                "reference": "e5e7a2b8984da8dfedaf44adc7e5f60a62ad280c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e39b040e272c72f0a090c67d802e1d3b2d0b0313",
-                "reference": "e39b040e272c72f0a090c67d802e1d3b2d0b0313",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e5e7a2b8984da8dfedaf44adc7e5f60a62ad280c",
+                "reference": "e5e7a2b8984da8dfedaf44adc7e5f60a62ad280c",
                 "shasum": ""
             },
             "require": {
@@ -1039,7 +1039,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2015-12-05 09:38:57"
+            "time": "2015-12-28 18:02:43"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2199,16 +2199,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.7.7",
+            "version": "v2.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "cc69dbd24b4b2e6de60b2414ef95da2794f459a2"
+                "reference": "ad264021e44a5aaa132f16aef69f92e56795683e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/cc69dbd24b4b2e6de60b2414ef95da2794f459a2",
-                "reference": "cc69dbd24b4b2e6de60b2414ef95da2794f459a2",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/ad264021e44a5aaa132f16aef69f92e56795683e",
+                "reference": "ad264021e44a5aaa132f16aef69f92e56795683e",
                 "shasum": ""
             },
             "require": {
@@ -2319,7 +2319,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-11-23 11:58:08"
+            "time": "2015-12-26 15:02:06"
         },
         {
             "name": "twig/twig",
@@ -2523,16 +2523,16 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v2.8.0",
+            "version": "v2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "fb79ac646c342fdff19864619943a6c58bb28893"
+                "reference": "2deb2ccbe184948ae4e85e7b99e962738d3d2d69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/fb79ac646c342fdff19864619943a6c58bb28893",
-                "reference": "fb79ac646c342fdff19864619943a6c58bb28893",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/2deb2ccbe184948ae4e85e7b99e962738d3d2d69",
+                "reference": "2deb2ccbe184948ae4e85e7b99e962738d3d2d69",
                 "shasum": ""
             },
             "require": {
@@ -2574,7 +2574,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2015-11-27 22:51:43"
+            "time": "2015-12-11 08:57:52"
         }
     ],
     "aliases": [],

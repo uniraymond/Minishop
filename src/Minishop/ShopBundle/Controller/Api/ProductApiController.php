@@ -58,7 +58,8 @@ class ProductApiController extends FOSRestController
     $entity = $em->getRepository('MinishopShopBundle:Product')->find($product_id);
 //    $entity = $em->getRepository('MinishopShopBundle:Product')->findById($product_id);
 
-//    var_dump($entity);exit;
+//    $array_data = array('product' => $entity);
+//    var_dump($serializer->serialize($array_data, 'json'));exit;
     $array_data = array('id'=> $entity->getId(), 'name'=>$entity->getName(), 'price'=>$entity->getPrice(),
         'brand'=>$entity->getBrand(),
         'description'=>$entity->getDescription());
