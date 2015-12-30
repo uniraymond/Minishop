@@ -6,6 +6,8 @@ minishop_shop_product:
     resource: "@MinishopShopBundle/Resources/config/routing/product.yml"
     prefix:   /
 
-#minishop_shop_homepage:
-#    path:     /hello/{name}
-#    defaults: { _controller: MinishopShopBundle:Default:index }
+
+
+#get_products:
+#    path:     /api
+#    defaults: { _controller: MinishopShopBundle:ProductApi:getProducts }
