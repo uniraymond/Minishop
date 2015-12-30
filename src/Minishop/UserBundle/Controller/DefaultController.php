@@ -6,8 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function getParent()
     {
-        return $this->render('MinishopUserBundle:Default:index.html.twig', array('name' => $name));
+        return 'FOSUserBundle';
+    }
+
+    public function indexAction()
+    {
+        return $this->render('MinishopUserBundle:Default:index.html.twig');
+//        return array();
     }
 }

@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Minishop\UserBundle\MinishopUserBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Minishop\BackendBundle\MinishopBackendBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
