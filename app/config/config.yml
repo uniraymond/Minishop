@@ -11,7 +11,14 @@ fos_user:
 hwi_oauth:
     firewall_name: main
     connect:
+        confirmation: true
+#        registration_form: fos_user.registration.form
         account_connector: app.provider.oauth
+    fosub:
+        username_iterations: 30
+        properties:
+            facebook: facebook_id
+            google: google_id
     resource_owners:
         facebook:
             type:           facebook

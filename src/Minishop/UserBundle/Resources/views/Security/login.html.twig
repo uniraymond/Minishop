@@ -22,9 +22,9 @@
     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
   </form>
   <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
-    <span>Facebook</span>
+    <span>Facebook Login</span>
   </a>
   <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}">
-    <span>Google</span>
+    <span>Google Login</span>
   </a>
 {% endblock fos_user_content %}

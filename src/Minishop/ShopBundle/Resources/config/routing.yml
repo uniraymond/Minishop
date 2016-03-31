@@ -6,8 +6,7 @@ minishop_shop_product:
     resource: "@MinishopShopBundle/Resources/config/routing/product.yml"
     prefix:   /
 
-
-
-#get_products:
-#    path:     /api
-#    defaults: { _controller: MinishopShopBundle:ProductApi:getProducts }
+minishop_shop_product_api:
+    resource: "@MinishopShopBundle/Controller/Api"
+    prefix:   /api
+    type:     annotation
